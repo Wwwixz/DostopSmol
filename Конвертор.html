@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <button class='btn' onclick="document.location='Главная.html'"><h3>></h3 ></button>
+    <style>
+        .btn {
+            width: 120px;
+            height: 50px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор достопримечательностей</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Выбор достопримечательностей</h1>
+        <form id="attractionsForm">
+            <div>
+                <input type="checkbox" id="fortress" value="60">
+                <label for="fortress">Крепостная стена (музей Громовая башня) (1 час)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="lopatinGarden" value="30">
+                <label for="lopatinGarden">Лопатинский сад (30 минут)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="cityGarden" value="30">
+                <label for="cityGarden">Городской сад им. М.И. Глинки (сад «Блонье») (30 минут)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="memorySquare" value="90">
+                <label for="memorySquare">Сквер памяти героев (1 час 30 минут)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="cathedral" value="30">
+                <label for="cathedral">Кафедральный собор Успения Пресвятой Богородицы (30 минут)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="teremok" value="60">
+                <label for="teremok">Историко-архитектурный комплекс «Теремок» (1 час)</label>
+            </div>
+            <button type="button" onclick="calculateTotalTime()">Рассчитать общее время</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTotalTime() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            let totalTime = 0;
+
+            checkboxes.forEach((checkbox) => {
+                totalTime += parseInt(checkbox.value);
+            });
+
+            const hours = Math.floor(totalTime / 60);
+            const minutes = totalTime % 60;
+
+            let resultText = `Общее время: ${hours} час(ов) и ${minutes} минут`;
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+
+</html>

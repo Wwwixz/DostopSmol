@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпадающий список и переход</title>
+    <script>
+        function navigate() {
+            var select = document.getElementById("pageSelect");
+            var selectedValue = select.value;
+
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Выберите страницу для перехода</h1>
+
+        <select id="pageSelect" onchange="navigate()">
+            <option value="">-- Выберите страницу --</option>
+            <option value="Крепостная.html">Крепостная стена(музей Громовая башня)</option>
+            <option value="Лопатинский.html">Лопатинский сад</option>
+            <option value="Блонье.html">Городской сад им. М.И. Глинки (сад «Блонье»)</option>
+            <option value="Сквер.html">Сквер памяти героев</option>
+            <option value="Собор.html">Кафедральный собор Успения Пресвятой Богородицы</option>
+            <option value="Теремок.html">Историко-архитектурный комплекс «Теремок»</option>
+            <option value="Конвертор.html">Конвертор</option>
+        </select>
+
+        <p>Выберите опцию из выпадающего списка, чтобы перейти на соответствующую страницу.</p>
+    </center>
+</body>
+
+</html>
+<link rel="stylesheet" href="style.css">
